@@ -1,0 +1,12 @@
+ <div class="col-md-4">
+                  <div class="box_man">
+                     <a href="{% url 'cdetail' x.id %}"><h3 class="mobile_text">{{x.name}}</h3><a/>
+                     <div class="camera_img"><img src="{{x.img.url}}"></div>
+                     <div class="cart_main">
+                        <div class="cart_bt"><a href="#">Add To Cart</a></div>
+                        <h4 class="samsung_text">{{x.model}}</h4>
+                        <h6 class="rate_text"><a href="#">${{x.prise}}</a></h6>
+                        <h6 class="rate_text_1">${{x.prise}}</h6>
+                     </div>
+                  </div>
+               </div>

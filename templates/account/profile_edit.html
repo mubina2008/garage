@@ -1,0 +1,7 @@
+</h1>Foydalanuvchi malumotlarini ozgartirish</h1>
+</p>Siz oziz haqizdagi malumotlarni quydagi formani toldirish orqali ozgartirishingiz mumkin</p>
+<form mathod="post">{% csrf_token %}
+{{user_form.as_p}}
+    {{profile_form.as_p}}
+    <button tupe="submit">Ozgarishlarini saqlash</button>
+</form>

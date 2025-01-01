@@ -1,0 +1,10 @@
+<div class="row">
+                  <div class="col-md-6">
+                     <a href="{% url 'mdetail' x.id %}"><h1 class="offer_text">{{x.name}}</h1><a/>
+                     <p class="lorem_text">{{x.bio}}</p>
+                     <div class="read_bt"><a href="#">{{x.prise}}</a></div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="image_3"><img src="{{x.img.url}}"></div>
+                  </div>
+               </div>

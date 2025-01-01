@@ -1,0 +1,178 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+      <!-- banner section start -->
+      <div class="banner_section layout_padding">
+         <div id="my_slider" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+               {% for x in banner %}
+               {% if forloop.counter < 2 %}
+               <div class="carousel-item active">
+                  <div class="container">
+                     <div class="row border_1">
+                        <div class="col-md-4">
+                           <div class="image_1"><img src="{{x.img.url}}" style="width:100%"></div>
+                        </div>
+                        <div class="col-md-4">
+                           <a href="{% url 'detail' x.id %}"><h1 class="banner_taital">{{x.name}}</h1><a/>
+                           <div class="buynow_bt active"><a href="#">{{x.prise}}</a></div>
+                           <div class="contact_bt"><a href="contact.html">Contact Us</a></div>
+                        </div>
+                        <div class="col-md-4">
+                           <div class="image_2"><img src="{% static 'images/img-2.png' %}" style="width:100%"></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               {% else %}
+               <div class="carousel-item">
+                  <div class="container">
+                     <div class="row border_1">
+                        <div class="col-md-4">
+                           <div class="image_1"><img src="{{x.img.url}}" style="width:100%"></div>
+                        </div>
+                        <div class="col-md-4">
+                           <h1 class="banner_taital">{{x.name}}</h1>
+                           <div class="buynow_bt active"><a href="#">{{x.prise}}</a></div>
+                           <div class="contact_bt"><a href="contact.html">Contact Us</a></div>
+                        </div>
+                        <div class="col-md-4">
+                           <div class="image_2"><img src="{% static 'images/img-2.png' %}" style="width:100%"></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               {% endif %}
+               {% endfor %}
+            </div>
+            <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
+              <i class="fa fa-angle-left"></i>
+            </a>
+            <a class="carousel-control-next" href="#my_slider" role="button" data-slide="next">
+              <i class="fa fa-angle-right"></i>
+            </a>
+         </div>
+      </div>
+      <!-- banner section end -->
+      <!-- catagary section start -->
+      <div class="catagary_section layout_padding">
+         <div class="container">
+            <div class="catagary_main">
+               <div class="catagary_left">
+                  <h2 class="categary_text">Categary</h2>
+               </div>
+               <div class="catagary_right">
+                  <div class="catagary_menu">
+                     <ul>
+                        <li><a href="#">Man's Fashion</a></li>
+                        <li><a href="#">Woman Fashion</a></li>
+                        <li><a href="#">Beauty</a></li>
+                        <li><a href="#">Mobiles</a></li>
+                        <li><a href="#">Computers</a></li>
+                        <li><a href="#">Watchs</a></li>
+                        <li><a href="#">Kicthen</a></li>
+                        <li><a href="#">Sports</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="catagary_section_2">
+         <div class="container-fluid">
+            <div class="row">
+               {% for x in catagary %}
+               <div class="col-md-4">
+                  <div class="box_man">
+                     <a href="{% url 'cdetail' x.id %}"><h3 class="mobile_text">{{x.name}}</h3><a/>
+                     <div class="camera_img"><img src="{{x.img.url}}"></div>
+                     <div class="cart_main">
+                        <div class="cart_bt"><a href="#">Add To Cart</a></div>
+                        <h4 class="samsung_text">{{x.model}}</h4>
+                        <h6 class="rate_text"><a href="#">${{x.prise}}</a></h6>
+                        <h6 class="rate_text_1">${{x.prise}}</h6>
+                     </div>
+                  </div>
+               </div>
+               {% endfor %}
+            </div>
+         </div>
+      </div>
+      <!-- catagary section end -->
+      <!-- computers section start -->
+      <div class="computers_section layout_padding">
+         <div class="container">
+            <h1 class="computers_taital">Computers & Laptop</h1>
+         </div>
+      </div>
+      <div class="computers_section_2">
+         <div class="container-fluid">
+            <div class="computer_main">
+               <div class="row">
+                  {% for x in camputers %}
+                  <div class="col-md-4">
+                     <div class="computer_img"><img src="{{x.img.url}}"></div>
+                     <a href="{% url 'comdetail' x.id %}"> <h4 class="computer_text">{{x.name}}</h4><a/>
+                     <div class="computer_text_main">
+                        <h4 class="dell_text">{{x.model}}</h4>
+                        <h6 class="price_text"><a href="#">${{x.prise}}</a></h6>
+                        <h6 class="price_text_1"><a href="#">${{x.prise2}}</a></h6>
+                     </div>
+                     <div class="cart_bt_1"><a href="#">Add To Cart</a></div>
+                  </div>
+                  {% endfor %}
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- computers section end -->
+      <!-- mans clothes section start -->
+      <div class="mans_section layout_padding">
+         <div class="container">
+            <h1 class="computers_taital">Man’s clothes</h1>
+         </div>
+      </div>
+      <div class="mans_section_2">
+         <div class="container-fluid">
+            <div class="mans_main">
+               {% for x in mansclothers %}
+               <div class="row">
+                  <div class="col-md-6">
+                     <a href="{% url 'mdetail' x.id %}"><h1 class="offer_text">{{x.name}}</h1><a/>
+                     <p class="lorem_text">{{x.bio}}</p>
+                     <div class="read_bt"><a href="#">{{x.prise}}</a></div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="image_3"><img src="{{x.img.url}}"></div>
+                  </div>
+               </div>
+               {% endfor %}
+            </div>
+         </div>
+      </div>
+      <!-- mans clothes section end -->
+      <!-- womans clothes section start -->
+      <div class="computers_section layout_padding">
+         <div class="container">
+            <h1 class="womans_taital">woman’s clothes</h1>
+            <div class="womans_section_2">
+               {% for x in woman %}
+                <div class="row">
+                  <div class="col-md-6">
+                     </div>
+                     <a href="{% url 'wdetail' x.id %}"><h1 class="offer_text">{{x.name}}</h1><a/>
+                     <p class="lorem_text">{{x.bio}}</p>
+                     <div class="read_bt"><a href="#">{{x.prise}}</a></div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="image_3"><img src="{{x.img.url}}"></div>
+                  </div>
+               </div>
+               {% endfor %}
+            </div>
+         </div>
+      </div>
+      <!-- womans clothes section end -->
+
+{% endblock content %}
